@@ -1,0 +1,39 @@
+/* ================= GLOBAL CSS VARIABLES (THE MAGIC) ================= */
+:root {
+  /* Default Light Mode Variables */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(0, 0, 0, 0.05);
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #444444;
+  --dropdown-hover: #f8f9fa;
+  --hr-color: #eeeeee;
+}
+
+/* 🔥 When the body gets the dark-mode class, these override the light ones! */
+body.dark-mode {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #bbbbbb;
+  --card-bg: rgba(30, 30, 30, 0.95);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --dropdown-bg: #2a2a2a;
+  --dropdown-text: #ffffff;
+  --dropdown-hover: #3a3a3a;
+  --hr-color: #444444;
+}
+
+/* ================= BASE STYLES ================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  
+  /* 🔥 Now the entire app's background and text color listen to the toggle! */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}

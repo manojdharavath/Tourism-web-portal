@@ -1,0 +1,624 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+/* ================= OPTIMIZED INTRO ================= */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Using will-change tells the browser to prepare the GPU */
+  will-change: opacity, transform;
+  animation: exitScreen 0.8s cubic-bezier(0.4, 0, 0.2, 1) 3.5s forwards;
+}
+
+.intro-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  /* Transform is cheaper than animating width/height */
+  transform: scale(1.05);
+  animation: subtleZoom 5s linear forwards;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  /* Hardware acceleration hint */
+  backface-visibility: hidden;
+}
+
+.intro-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0;
+  /* Smooth opacity and slide */
+  animation: slideUpSmooth 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.tagline {
+  margin-top: 10px;
+  opacity: 0;
+  /* Use translate3d to force GPU layer */
+  transform: translate3d(0, 20px, 0);
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+/* ================= HARDWARE ACCELERATED ANIMATIONS ================= */
+
+@keyframes slideUpSmooth {
+  from { 
+    opacity: 0; 
+    transform: translate3d(0, 30px, 0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0); 
+  }
+}
+
+@keyframes fadeInUp {
+  to { 
+    opacity: 0.8; 
+    transform: translate3d(0, 0, 0); 
+  }
+}
+
+@keyframes subtleZoom {
+  to { transform: scale(1.15); }
+}
+
+@keyframes exitScreen {
+  0% { opacity: 1; transform: scale(1); }
+  100% { 
+    opacity: 0; 
+    transform: scale(1.05);
+    visibility: hidden; 
+  }
+}
+/* ================= STICKY PILL NAVBAR ================= */
+.pill-navbar {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  width: calc(100% - 40px); max-width: 1000px; height: 72px;
+  background: rgba(45, 45, 45, 0.85); border-radius: 40px; z-index: 9990;
+  backdrop-filter: blur(18px); box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Added subtle border */
+}
+
+.nav-container { height: 100%; padding: 0 26px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 10px; color: white; font-weight: 700; cursor: pointer; text-decoration: none; }
+.nav-logo img { width: 38px; height: 38px; object-fit: contain; transition: transform 0.3s ease; }
+.nav-logo:hover img { transform: rotate(-10deg) scale(1.1); } /* Fun logo hover */
+
+/* ================= NAV LINKS ================= */
+.nav-links { display: flex; align-items: center; gap: 15px; list-style: none; }
+
+.nav-links a { 
+  color: rgba(255, 255, 255, 0.8); 
+  text-decoration: none; 
+  padding: 8px 18px; 
+  border-radius: 22px; 
+  font-size: 0.95rem; 
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect */
+.nav-links a:hover { 
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12); 
+}
+
+/* 🔥 THE ACTIVE HIGHLIGHT 🔥 */
+.nav-links a.active-link {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2); /* Brighter pill background */
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Small gold dot under active link */
+.nav-links a.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: #ffc107; /* Brand Gold */
+  border-radius: 50%;
+}
+/* ================= PROFILE DROPDOWN (FIXED) ================= */
+.profile-dropdown { position: relative; display: inline-block; }
+
+/* This invisible bridge prevents the menu from closing when moving the mouse down */
+.profile-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 25px; /* Bridge height */
+  background: transparent;
+}
+
+.profile-toggle {
+  background: rgba(255, 255, 255, 0.15); /* Restored background seen in your photo */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff; 
+  padding: 6px 16px 6px 6px; 
+  border-radius: 30px; 
+  display: flex;
+  align-items: center; 
+  gap: 12px; 
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.profile-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.avatar { 
+  background: #ffc107; 
+  color: #000; 
+  width: 32px; 
+  height: 32px; 
+  border-radius: 50%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-weight: 800; 
+}
+
+/* THE MAIN DROPDOWN BOX */
+.dropdown-menu {
+  display: none; 
+  position: absolute; 
+  top: calc(100% + 15px); 
+  right: 0; 
+  background: #fff;
+  min-width: 240px; 
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* Softened shadow for a cleaner look */
+  border-radius: 16px;
+  padding: 0; /* Changed to 0 to let the header background fill the corners */
+  z-index: 10000;
+  animation: slideDown 0.3s ease;
+  overflow: hidden; /* Ensures the rounded corners apply to the header */
+}
+
+.profile-dropdown:hover .dropdown-menu { 
+  display: block; 
+}
+
+/* THE NAME HEADER (The part you wanted) */
+.user-info {
+  padding: 18px 20px;
+  background: #fcfcfc; /* Very subtle grey contrast */
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.user-info strong { 
+  display: block; 
+  color: #1a202c; 
+  font-size: 1rem; 
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  text-transform: capitalize;
+}
+
+/* NAVIGATION LINKS */
+.dropdown-menu a { 
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px; 
+  color: #4a5568; 
+  text-decoration: none; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.dropdown-menu a:hover { 
+  background: #fffbeb; /* Light yellow tint on hover */
+  color: #d97706;      /* Deep gold for text */
+  padding-left: 25px;  /* Slight slide-in effect */
+}
+
+/* LOGOUT SPECIFIC (Optional color shift) */
+.logout-link:hover {
+  background: #fff5f5 !important;
+  color: #e53e3e !important;
+}
+
+/* ANIMATION */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= TOAST POPUP ================= */
+.toast-message {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 99999;
+}
+
+.toast-message.show { bottom: 40px; }
+
+@keyframes slideDown { 
+  from { opacity: 0; transform: translateY(-10px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+/* 🔥 THE FIX FOR USER DETAILS IN DROPDOWN 🔥 */
+.user-details {
+  padding: 20px;            /* Internal space so text doesn't touch edges */
+  background: #ffffff;      /* Matches the dropdown background */
+  border-bottom: 1px solid #f0f0f0; /* Clean separator line */
+  border-radius: 16px 16px 0 0;    /* Matches the top corner curves */
+}
+
+.user-details h4 {
+  margin: 0;
+  color: #1a1a1a;           /* Deep black for the name */
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-details p {
+  margin: 4px 0 0 0;
+  color: #555555;           /* Soft grey for the email */
+  font-size: 0.85rem;
+  word-break: break-all;    /* Prevents long emails from breaking the box */
+}
+
+.user-details .user-mobile {
+  margin-top: 8px;
+  color: #888888;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+/* =========================================
+   1. ACTIVE PAGE HIGHLIGHTING (Global)
+   ========================================= */
+/* Desktop Highlight */
+.nav-links a.active-link {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Highlight Indicator (Vertical Line) */
+@media (max-width: 768px) {
+  .nav-links a.active-link {
+    background: rgba(255, 193, 7, 0.1) !important;
+    color: #ffc107 !important;
+    border-left: 4px solid #ffc107; /* Gold indicator on the left */
+    padding-left: 20px !important;
+  }
+}
+
+/* =========================================
+   2. UPGRADED RESPONSIVE SIDEBAR
+   ========================================= */
+@media (max-width: 768px) {
+  
+  .pill-navbar {
+    top: 15px;
+    height: 65px;
+    width: calc(100% - 25px);
+  }
+
+  /* SIDEBAR MAIN WRAPPER */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px; 
+    height: 100vh;
+    background: #121212; /* Solid dark for depth */
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 0; /* Removed top padding to allow Profile Header to sit at top */
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  /* 3. NEW: PROFILE HEADER (Avatar next to Name) */
+  .profile-dropdown {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    order: -1; /* Forces Profile to the very top of the list */
+    background: linear-gradient(to bottom, rgba(255,193,7,0.15), transparent);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .profile-toggle {
+    padding: 30px 20px !important; /* Large touch area */
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+
+  .avatar {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.4rem !important;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+  }
+
+  .user-name {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    letter-spacing: 0.5px;
+  }
+
+  /* 4. NAVIGATION LIST SPACING */
+  .nav-links li {
+    width: 100%;
+  }
+
+  /* Main Links (Home, Destinations, etc.) */
+  .nav-links li:not(.profile-dropdown) {
+    padding: 0 10px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 16px 20px;
+    margin: 5px 0;
+    border-radius: 12px;
+    border-bottom: none !important; /* Clean modern look */
+    color: #ccc;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 5. SUB-MENU LINKS (My Profile, My Bookings, etc.) */
+  .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    background: transparent !important;
+    display: block !important; 
+    padding: 0 10px 20px 10px !important;
+  }
+
+  .dropdown-menu a {
+    font-size: 0.9rem !important;
+    padding: 12px 20px 12px 65px !important; /* Aligned under the name */
+    color: #999 !important;
+    background: rgba(255,255,255,0.03) !important;
+    margin: 2px 0;
+  }
+
+  .dropdown-menu a:hover {
+    color: #ffc107 !important;
+    background: rgba(255, 193, 7, 0.05) !important;
+  }
+
+  /* Hide the extra info box in mobile to save space */
+  .user-info {
+    display: none !important;
+  }
+
+  /* 6. HAMBURGER ANIMATION */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1100;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 2px;
+    background: #fff;
+    border-radius: 10px;
+    transition: 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  .nav-links.open ~ .nav-container .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-links.open ~ .nav-container .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-links.open ~ .nav-container .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* --- EXTRA SMALL SCREENS --- */
+@media (max-width: 400px) {
+  .nav-links {
+    width: 100%; /* Full screen menu on tiny phones */
+  }
+  
+  .avatar {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  
+  .user-name {
+    font-size: 1rem !important;
+  }
+}
+/* =========================================
+   1. THE ULTIMATE OVERLAY (STRICT LOCK)
+   ========================================= */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* Forces horizontal lock */
+  bottom: 0;
+  width: 100%; 
+  height: 100vh;
+  z-index: 99999;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  /* CRITICAL: This stops the white gap from appearing */
+  overflow: hidden; 
+}
+
+/* =========================================
+   2. VIDEO & OVERLAY
+   ========================================= */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); 
+  z-index: 2;
+}
+
+/* =========================================
+   3. CONTENT (IPHONE SE OPTIMIZED)
+   ========================================= */
+.intro-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  width: 100%;
+  /* Space on sides so text doesn't hit edges */
+  padding: 0 15px; 
+  box-sizing: border-box;
+}
+
+.glitch-text {
+  /* FONT SIZE FIX: 
+     On iPhone SE (375px), 9vw results in ~33px. 
+     This is the 'sweet spot' to keep it on one line. */
+  font-size: clamp(1.8rem, 8.5vw, 5rem); 
+  font-weight: 900;
+  /* REDUCED SPACING: Too much spacing causes the overflow */
+  letter-spacing: clamp(1px, 1.2vw, 8px); 
+  margin: 0 auto;
+  color: #fff;
+  text-shadow: 2px 2px 0px #ff4b2b, -2px -2px 0px #00d4ff;
+  white-space: nowrap; 
+  text-transform: uppercase;
+  display: block;
+}
+
+.glitch-text span {
+  color: #ff4b2b;
+}
+
+.divider {
+  width: 40px; /* Smaller divider */
+  height: 3px;
+  background: #ff4b2b;
+  margin: 12px auto;
+  border-radius: 2px;
+}
+
+.tagline {
+  font-size: clamp(0.6rem, 2.5vw, 1.1rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* =========================================
+   4. HARD FIX FOR EXTRA SMALL SCREENS
+   ========================================= */
+@media (max-width: 380px) {
+  .glitch-text {
+    /* Manual override for iPhone SE width */
+    font-size: 1.7rem !important; 
+    letter-spacing: 1px !important;
+  }
+  
+  .tagline {
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* =========================================
+   5. ANIMATION (STABLE)
+   ========================================= */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(1.02); }
+  15% { opacity: 1; transform: scale(1); }
+  85% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.98); visibility: hidden; }
+}
+
+.intro-content {
+  /* Using 'forwards' to keep it hidden after it finishes */
+  animation: fadeInOut 4s ease-in-out forwards;
+}

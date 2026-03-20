@@ -1,0 +1,84 @@
+<div class="page-wrapper">
+  <div class="content-card">
+    
+    <button class="top-back-btn" (click)="goHome()">← Back to Home</button>
+
+    <h2>My Bookings 🎟️</h2>
+
+    <div class="empty-state" *ngIf="authService.myBookings.length === 0">
+      <div class="empty-icon">🎒</div>
+      <h3>No bookings yet!</h3>
+      <p>Make your first booking here. It's time to explore!</p>
+      <button class="primary-btn mt-3" routerLink="/destinations">Explore Destinations 🚀</button>
+    </div>
+
+    <div class="bookings-list" *ngIf="authService.myBookings.length > 0">
+      <div class="booking-item" *ngFor="let trip of authService.myBookings">
+        <div class="booking-header">
+          <h3>{{ trip.destination }}</h3>
+          <span class="status">Confirmed ✅</span>
+        </div>
+        <div class="booking-details">
+          <p><strong>Date:</strong> {{ trip.date }}</p>
+          <p><strong>Booking ID:</strong> {{ trip.bookingId }}</p>
+        </div>
+        <button class="view-btn" (click)="viewTicket(trip)">View Ticket</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ticket-modal-overlay" *ngIf="selectedTicket">
+  <div class="ticket-modal">
+    <div class="ticket-header">
+      <h3>
+        <span *ngIf="selectedTicket.travelMode === 'Flight'">✈️</span>
+        <span *ngIf="selectedTicket.travelMode === 'Train'">🚆</span>
+        <span *ngIf="selectedTicket.travelMode === 'Bus'">🚌</span>
+        {{ selectedTicket.provider }}
+      </h3>
+      <button class="close-btn" (click)="closeTicket()">&times;</button>
+    </div>
+    
+    <div class="ticket-body">
+      <div class="route-info">
+        <div class="city">
+          <span class="label">From</span>
+          <strong>{{ selectedTicket.fromLocation }}</strong>
+        </div>
+        <div class="arrow">➔</div>
+        <div class="city">
+          <span class="label">To</span>
+          <strong>{{ selectedTicket.destination }}</strong>
+        </div>
+      </div>
+
+      <div class="trip-details-grid">
+        <div class="detail-box"><span>Date</span><strong>{{ selectedTicket.date }}</strong></div>
+        <div class="detail-box"><span>Time</span><strong>{{ selectedTicket.time }}</strong></div>
+        <div class="detail-box"><span>Booking ID</span><strong>{{ selectedTicket.bookingId }}</strong></div>
+      </div>
+
+      <div class="passenger-section">
+        <h4>Passenger Details</h4>
+        <table class="passenger-table">
+          <tr *ngFor="let p of selectedTicket.passengerDetails">
+            <td>{{ p.name }}</td>
+            <td>Age: {{ p.age }}</td>
+            <td class="status-text">Confirmed</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="ticket-row total-row">
+        <span>Total Paid:</span>
+        <h2>₹{{ selectedTicket.price }}</h2>
+      </div>
+    </div>
+
+    <div class="ticket-footer">
+      <button class="print-btn" (click)="printTicket()">🖨️ Print Ticket</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="contact-page">
+  <div class="contact-container">
+    
+    <div class="info-side">
+      <div class="info-content">
+        <span class="tag">Contact Us</span>
+        <h2>Let's Plan Your <br><span>Next Adventure</span></h2>
+        <p class="side-desc">Our travel experts are ready to assist you. Reach out through any of these channels.</p>
+
+        <div class="contact-details">
+          <div class="detail-item">
+            <div class="icon-box wa-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="detail-text">
+              <h4>Direct Support</h4>
+              <a [href]="socialLinks.whatsapp" target="_blank" class="chat-btn">Chat on WhatsApp →</a>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+            <div class="detail-text">
+              <h4>Email Us</h4>
+              <p>support@yatraverse.com</p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+            <div class="detail-text">
+              <h4>Call Support</h4>
+              <p>+91 97046 92620</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-wrapper">
+          <p class="follow-text">Follow our journey:</p>
+          <div class="social-grid">
+            <a [href]="socialLinks.instagram" target="_blank" class="s-icon ig"><i class="fa-brands fa-instagram"></i></a>
+            <a [href]="socialLinks.facebook" target="_blank" class="s-icon fb"><i class="fa-brands fa-facebook"></i></a>
+            <a [href]="socialLinks.twitter" target="_blank" class="s-icon x"><i class="fa-brands fa-x-twitter"></i></a>
+            <a [href]="socialLinks.linkedin" target="_blank" class="s-icon ln"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-side">
+      
+      <form *ngIf="!isSent" class="glass-form" (submit)="handleContactSubmit($event)">
+        <h3 class="form-title">Send a Message</h3>
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Ex: Manoj Dharavath" required />
+        </div>
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Ex: name@example.com" required />
+        </div>
+        <div class="input-group">
+          <label>How can we help?</label>
+          <textarea rows="4" placeholder="Tell us about your travel plans..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+      <div *ngIf="isSent" class="success-screen-ui">
+        <div class="check-container">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="success-heading">Sent Successfully!</h3>
+        <p class="success-desc">Thank you for reaching out! Your message has been transmitted.</p>
+        <button (click)="isSent = false" class="retry-btn">Send Another</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast-bar" [class.show]="isSent">
+  <i class="fa-solid fa-circle-check"></i> Your message was transmitted successfully!
+</div>

@@ -1,0 +1,261 @@
+<div class="booking-wrapper">
+
+  <h2 class="page-title">Book Your Journey</h2>
+    
+  <div class="from-destination-msg" *ngIf="cameFromDestination && step === 1">
+    📍 You selected <strong>{{ toDestination }}</strong>.
+    Please choose a travel type to continue.
+  </div>
+
+  <div class="travel-types" *ngIf="step === 1">
+    <div class="type-card" (click)="selectMode('Flight')">✈ Flights</div>
+    <div class="type-card" (click)="selectMode('Train')">🚆 Trains</div>
+    <div class="type-card" (click)="selectMode('Bus')">🚌 Buses</div>
+    <div class="type-card" (click)="selectMode('Hotel')">🏨 Hotels</div>
+    <div class="type-card" (click)="selectMode('Package')">🎒 Tour Packages</div>
+  </div>
+
+    <div class="analytics-row" *ngIf="step === 1">
+      <div class="glass-card">
+        <h3>94%</h3>
+        <p>Happy Travelers</p>
+        <span class="badge">Verified</span>
+      </div>
+      <div class="glass-card">
+        <h3>28+</h3>
+        <p>States Mapped</p>
+        <span class="badge">Live Data</span>
+      </div>
+      <div class="glass-card">
+        <h3>4.9/5</h3>
+        <p>User Rating</p>
+        <span class="badge">Top Rated</span>
+      </div>
+    </div>
+
+    <div class="dashboard-container" #statsSection *ngIf="step === 1">
+      <div class="dashboard-grid">
+        <div class="col-left">
+          <h4 class="box-title"><span class="live-dot"></span> Real-Time Metrics</h4>
+          <div class="progress-item">
+            <div class="label-row"><span>Destination Mapping</span> <span>100%</span></div>
+            <div class="progress-track"><div class="progress-fill green-glow" [style.width]="isVisible ? '100%' : '0%'"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="label-row"><span>User Interest Index</span> <span>78%</span></div>
+            <div class="progress-track"><div class="progress-fill blue-glow" [style.width]="isVisible ? '78%' : '0%'"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="label-row"><span>Active Bookings</span> <span>45%</span></div>
+            <div class="progress-track"><div class="progress-fill orange-glow" [style.width]="isVisible ? '45%' : '0%'"></div></div>
+          </div>
+        </div>
+
+        <div class="col-right">
+          <div class="trending-box">
+            <h5>🔥 Trending Now</h5>
+            <div class="trend-item"><span>Leh-Ladakh</span> <small class="up-text">+12%</small></div>
+            <div class="trend-item"><span>Varanasi</span> <small class="view-text">Popular</small></div>
+            <div class="trend-item"><span>Goa</span> <small class="tag-text">Weekends</small></div>
+          </div>
+          <div class="kpi-mini-grid">
+            <div class="kpi-mini">🌍 <span>28 States</span></div>
+            <div class="kpi-mini">📸 <span>5k+ Media</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-ticker">
+        <div class="ticker-content">
+          <span>⚡ JUST BOOKED: Rahul from Mumbai to Manali!</span>
+          <span>📍 NEW: Spiti Valley packages now live.</span>
+          <span>🔥 TRENDING: 400+ users searching for Kerala.</span>
+          <span>🌟 UPDATE: 12 new heritage sites added to Hampi.</span>
+        </div>
+      </div>
+    </div>
+
+  <form #searchForm="ngForm" class="booking-form" *ngIf="step === 2" (ngSubmit)="searchOptions()">
+
+    <button type="button" class="back-btn" (click)="backToModes()">← Change Travel Type</button>
+
+    <div *ngIf="travelMode !== 'Hotel' && travelMode !== 'Package'" class="form-grid">
+
+      <label>From City
+        <input name="fromLoc" placeholder="Enter source city" 
+               [(ngModel)]="fromLocation" required minlength="3" pattern="^[a-zA-Z ]+$">
+      </label>
+
+      <label>Destination
+        <input name="toDest" placeholder="Enter destination" 
+               [(ngModel)]="toDestination" required minlength="3" pattern="^[a-zA-Z ]+$">
+      </label>
+
+      <label>Travel Date
+        <input name="tDate" type="date" [min]="today" [(ngModel)]="travelDate" required>
+      </label>
+
+      <label *ngIf="travelMode === 'Flight'">Trip Type
+        <select name="tripT" [(ngModel)]="tripType" required>
+          <option value="oneway">One Way</option>
+          <option value="round">Round Trip</option>
+        </select>
+      </label>
+
+      <label *ngIf="travelMode === 'Flight' && tripType === 'round'">
+        Return Date
+        <input name="rDate" type="date" [min]="travelDate" [(ngModel)]="returnDate" required>
+      </label>
+
+      <label>Class / Type
+        <select name="tClass" [(ngModel)]="travelClass" required>
+          <option value="" disabled selected>Select Class</option>
+          <option *ngIf="travelMode==='Flight'">Economy</option>
+          <option *ngIf="travelMode==='Flight'">Premium Economy</option>
+          <option *ngIf="travelMode==='Flight'">Business</option>
+          <option *ngIf="travelMode==='Train'">Sleeper (SL)</option>
+          <option *ngIf="travelMode==='Train'">3AC</option>
+          <option *ngIf="travelMode==='Train'">2AC</option>
+          <option *ngIf="travelMode==='Train'">1AC</option>
+          <option *ngIf="travelMode==='Bus'">Non-AC Seater</option>
+          <option *ngIf="travelMode==='Bus'">AC Seater</option>
+          <option *ngIf="travelMode==='Bus'">AC Sleeper</option>
+        </select>
+      </label>
+    </div>
+
+    <div *ngIf="travelMode === 'Hotel'" class="form-grid">
+      <label>Hotel Location
+        <input name="hLoc" placeholder="City / Area" 
+               [(ngModel)]="toDestination" required minlength="3" pattern="^[a-zA-Z ]+$">
+      </label>
+      <label>Check-in Date
+        <input name="checkIn" type="date" [min]="today" [(ngModel)]="checkIn" required>
+      </label>
+      <label>Check-out Date
+        <input name="checkOut" type="date" [min]="checkIn" [(ngModel)]="checkOut" required>
+      </label>
+      <label>Hotel Category
+        <select name="hCat" [(ngModel)]="hotelType" required>
+          <option value="" disabled selected>Select Category</option>
+          <option>3 Star</option>
+          <option>4 Star</option>
+          <option>5 Star</option>
+          <option>Luxury Resort</option>
+        </select>
+      </label>
+    </div>
+
+    <div *ngIf="travelMode === 'Package'" class="form-grid">
+      <label>Select Package
+        <select name="pName" [(ngModel)]="packageName" required>
+          <option value="" disabled selected>Select Package</option>
+          <option>Manali Package</option>
+          <option>Goa Package</option>
+          <option>Kerala Package</option>
+          <option>Darjeeling Package</option>
+        </select>
+      </label>
+      <label>Duration (Days)
+        <input name="pDays" type="number" min="1" [(ngModel)]="packageDays" required>
+      </label>
+      <label>Hotel Type
+        <select name="pHotel" [(ngModel)]="hotelType" required>
+          <option value="" disabled selected>Select Type</option>
+          <option>Standard</option>
+          <option>Luxury</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="passengers">
+      <label>Adults
+        <input name="adultCount" type="number" min="1" max="10" [(ngModel)]="adults" required>
+      </label>
+      <label>Children
+        <input name="childCount" type="number" min="0" max="10" [(ngModel)]="children" required>
+      </label>
+    </div>
+
+    <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
+  </form>
+
+  <div class="results" *ngIf="step === 3">
+    <div class="results-header">
+      <h3>Available {{ travelMode }} Options</h3>
+      <button class="back-btn" (click)="backToSearch()">← Modify Search</button>
+    </div>
+    <div class="result-card" *ngFor="let r of results">
+      <div>
+        <strong>{{ r.name }}</strong>
+        <p>Departure: {{ r.time }}</p>
+        <p>Fare: ₹{{ r.price }}</p>
+      </div>
+      <button (click)="selectOption(r)">Select</button>
+    </div>
+  </div>
+
+  <form #bookingForm="ngForm" class="booking-form" *ngIf="step === 4" (ngSubmit)="confirmPassengers()">
+    
+    <button type="button" class="back-btn" (click)="backToResults()">← Back to Results</button>
+
+    <h3>Passenger Details</h3>
+    <div class="passenger-box" *ngFor="let p of passengers; let i = index">
+      <label>Passenger {{ i+1 }} Name
+        <input [name]="'pName'+i" placeholder="Name" 
+               [(ngModel)]="p.name" required minlength="3" pattern="^[a-zA-Z ]+$">
+      </label>
+      <label>Age
+        <input [name]="'pAge'+i" type="number" min="1" max="110" 
+               [(ngModel)]="p.age" required>
+      </label>
+    </div>
+
+    <h3>Contact Details</h3>
+    <div class="form-grid">
+      <label>Full Name
+        <input name="cName" placeholder="Full Name" 
+               [(ngModel)]="contactName" required minlength="3" pattern="^[a-zA-Z ]+$">
+      </label>
+
+      <label>Email Address
+        <input name="cEmail" #emailInput="ngModel" type="email" placeholder="example@mail.com" 
+               [(ngModel)]="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        <span class="error-text" *ngIf="emailInput.invalid && emailInput.touched">
+          Please enter a valid email.
+        </span>
+      </label>
+
+      <label>Mobile Number
+        <input name="cMobile" #mobileInput="ngModel" type="tel" placeholder="10-digit Mobile" 
+               [(ngModel)]="mobile" required pattern="^[0-9]{10}$">
+        <span class="error-text" *ngIf="mobileInput.invalid && mobileInput.touched">
+          Must be exactly 10 digits.
+        </span>
+      </label>
+    </div>
+
+    <button type="submit" class="search-btn" [disabled]="bookingForm.invalid">
+      Confirm Booking 🚀
+    </button>
+  </form>
+
+  <div class="modal-overlay" *ngIf="notificationMessage">
+    <div class="modal-box" [ngClass]="notificationType">
+      <h2 *ngIf="notificationType === 'success'">✅ Success!</h2>
+      <h2 *ngIf="notificationType === 'info'">ℹ️ Notice</h2>
+      <h2 *ngIf="notificationType === 'error'">⚠️ Error</h2>
+      
+      <p>{{ notificationMessage }}</p>
+      
+      <button class="modal-btn" (click)="closeNotification()">OK</button>
+    </div>
+  </div>
+
+  <div class="offer-strip">
+    <div class="offer-text">
+      🎉 Flat 10% OFF on first booking — Use code <b>MYFIRSTTRAVEL</b> — Limited Time Offer 🎉
+    </div>
+  </div>
+
+</div>

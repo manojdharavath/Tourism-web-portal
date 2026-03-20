@@ -1,0 +1,156 @@
+<div class="admin-wrapper" *ngIf="isVisible">
+  
+  <div class="admin-header">
+    <div class="header-content">
+      <h1>🛡️ Business Command Center</h1>
+      <p>Operational Overview & Revenue Intelligence</p>
+    </div>
+    <button class="logout-btn" (click)="authService.logout()">
+       <i class="fa-solid fa-power-off"></i> Secure Logout
+    </button>
+  </div>
+
+  <div class="stat-cards-row">
+    <div class="stat-card">
+      <small>Gross Revenue</small>
+      <h3>₹{{revenueMetrics.total | number}}</h3>
+      <span class="trend up">↑ 24% Overall</span>
+    </div>
+    <div class="stat-card">
+      <small>Monthly Revenue</small>
+      <h3>₹{{revenueMetrics.monthlyTotal | number}}</h3>
+      <span class="trend up">↑ 14.2% Growth</span>
+    </div>
+    <div class="stat-card">
+      <small>Avg. Transaction Value(per Dest)</small>
+      <h3>₹{{revenueMetrics.avgBookingValue | number}}</h3>
+      <span class="trend">Target: ₹15k</span>
+    </div>
+  </div>
+
+  <div class="card revenue-card">
+    <h3 class="section-label">📅 Financial Performance (Last 6 Months)</h3>
+    <div class="monthly-bars-container">
+      <div class="month-item" *ngFor="let m of revenueMetrics.monthlySummary">
+        <div class="bar-wrapper-rev">
+          <div class="bar-fill-rev" [style.height]="(m.amt / 500000) * 100 + '%'">
+            <span class="bar-value">₹{{m.amt / 1000}}k</span>
+          </div>
+        </div>
+        <span class="month-label">{{m.month}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card table-card">
+    <h3 class="section-label">📍 Destination Revenue Breakdown</h3>
+    <table class="revenue-table">
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Bookings</th>
+          <th>Market Share</th>
+          <th>Total Generated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dest of revenueMetrics.destinations">
+          <td><strong>{{dest.name}}</strong></td>
+          <td>{{dest.bookings}}</td>
+          <td>
+            <div class="mini-progress">
+              <div class="mini-fill" [style.width]="(dest.revenue / revenueMetrics.total * 100) + '%'" [style.background]="dest.color"></div>
+            </div>
+          </td>
+          <td class="money-cell">₹{{dest.revenue | number}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <div class="full-dashboard">
+    <div class="dashboard-header">
+      <h2 class="main-heading">📈 Market Intelligence & Demand Analytics</h2>
+      <p class="sub-heading">Strategic data for inventory and pricing decisions.</p>
+    </div>
+
+    <div class="insight-banner urgent" *ngIf="smartRecommendation.title">
+      <div class="banner-content">
+        <div class="banner-icon-circle">🚨</div>
+        <div class="banner-text">
+          <h4>ADMIN ALERT: {{ smartRecommendation.title }}</h4>
+          <p>{{ smartRecommendation.desc }}</p>
+        </div>
+      </div>
+      <button class="banner-btn">{{ smartRecommendation.action }}</button>
+    </div>
+
+    <div class="module-section">
+        <div class="section-title">
+            <span class="num-badge">01</span>
+            <div class="title-group">
+                <h3 class="title-text">Destination Demand Yield</h3>
+                <p class="title-tag">Tracking the steady climb in booking velocity over the last 5 months.</p>
+            </div>
+        </div>
+
+        <div class="full-grid-spark">
+            <div class="spark-card-large" *ngFor="let item of popInsights">
+                <div class="card-meta">
+                    <strong class="place-name">{{item.name}}</strong>
+                    <span class="growth-pill" [style.background]="item.color">
+                        {{item.growth}}
+                    </span>
+                </div>
+
+                <div class="graph-container">
+                    <div class="bar-wrapper-spark" *ngFor="let val of item.trend">
+                        <div class="bar-spark" [style.height]="val + '%'" [style.background]="item.color">
+                            <div class="bar-info">
+                              <span class="label-text">DEMAND</span>
+                              <span class="label-value">{{val}}%</span>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+                <p class="graph-label">
+                    <strong>Strategic Note:</strong> {{item.desc}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="module-section">
+      <div class="section-title">
+         <span class="num-badge secondary">02</span>
+         <h3 class="title-text">Real-Time Inventory Status</h3>
+      </div>
+      <div class="full-grid-status">
+        <div class="status-box-premium" *ngFor="let s of bookingStatus">
+          <div class="status-header">
+            <span class="status-icon-bg">{{s.icon}}</span>
+            <div class="status-text">
+              <h4 class="location-title">{{s.place}}</h4>
+              <span class="badge-type">{{s.type}}</span>
+            </div>
+            <span class="status-dot" [style.background]="s.current >= 85 ? '#ff4b2b' : '#00ff88'"></span>
+          </div>
+          <div class="inventory-meter">
+            <div class="meter-labels">
+              <span>Current Load Factor</span>
+              <strong [style.color]="s.current >= 85 ? '#ff4b2b' : '#00d4ff'">{{s.current}}%</strong>
+            </div>
+            <div class="meter-bar">
+              <div class="meter-fill" [style.width]="s.current + '%'"
+                   [style.background]="s.current >= 85 ? 'linear-gradient(90deg, #ff416c, #ff4b2b)' : 'linear-gradient(90deg, #00d4ff, #00ff88)'">
+              </div>
+            </div>
+            <p class="slots-text"><strong>{{s.current}}</strong> units booked of <strong>{{s.total}}</strong> capacity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

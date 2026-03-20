@@ -1,0 +1,91 @@
+/* ================= TOP BACK BUTTON ================= */
+.top-back-btn {
+  background: none; border: none; color: #ff4b2b; font-weight: bold; font-size: 1rem;
+  cursor: pointer; margin-bottom: 20px; display: inline-flex; align-items: center;
+  transition: 0.3s ease; padding: 0;
+}
+.top-back-btn:hover { transform: translateX(-5px); color: #ff416c; }
+
+/* ================= PAGE STYLES ================= */
+.page-wrapper {
+  min-height: 100vh; width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/home-bg.png') center/cover fixed;
+  display: flex; justify-content: center; align-items: flex-start;
+  padding-top: 130px; padding-bottom: 50px;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+  border-radius: 20px; width: 90%; max-width: 800px; padding: 40px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3); height: fit-content;
+}
+
+.content-card h2 { margin-bottom: 30px; color: #333; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+
+.empty-state { text-align: center; padding: 40px 20px; }
+.empty-icon { font-size: 5rem; margin-bottom: 15px; }
+.empty-state h3 { font-size: 1.8rem; color: #444; margin-bottom: 10px; }
+.empty-state p { color: #666; font-size: 1.1rem; margin-bottom: 25px; }
+.mt-3 { margin-top: 20px; }
+
+.primary-btn {
+  background: linear-gradient(45deg, #ff4b2b, #ff416c); color: white; border: none;
+  padding: 14px 30px; border-radius: 30px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;
+}
+.primary-btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255, 65, 108, 0.4); }
+
+.bookings-list { display: flex; flex-direction: column; gap: 20px; }
+.booking-item { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+.booking-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+.booking-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.booking-header h3 { margin: 0; color: #222; font-size: 1.4rem; }
+.status { background: #e6f9ed; color: #28a745; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+.booking-details p { margin: 5px 0; color: #555; }
+.view-btn { margin-top: 15px; background: #f8f9fa; border: 1px solid #ccc; padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.view-btn:hover { background: #eee; }
+
+/* ================= DETAILED E-TICKET MODAL ================= */
+.ticket-modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center;
+  align-items: center; z-index: 1000; backdrop-filter: blur(5px);
+}
+.ticket-modal {
+  background: #fff; width: 95%; max-width: 550px; border-radius: 16px;
+  overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+}
+.ticket-header {
+  background: linear-gradient(45deg, #111, #333); color: white;
+  padding: 20px 25px; display: flex; justify-content: space-between; align-items: center;
+}
+.ticket-header h3 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; }
+.close-btn { background: none; border: none; color: white; font-size: 2rem; cursor: pointer; line-height: 1; transition: 0.2s; }
+.close-btn:hover { color: #ff4b2b; transform: scale(1.1); }
+.ticket-body { padding: 25px; display: flex; flex-direction: column; gap: 20px; }
+.route-info { display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; padding: 15px 20px; border-radius: 12px; border: 1px solid #eee; }
+.route-info .city { display: flex; flex-direction: column; }
+.route-info .label { font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 4px; }
+.route-info strong { font-size: 1.2rem; color: #222; }
+.route-info .arrow { font-size: 1.5rem; color: #ff4b2b; font-weight: bold; }
+.trip-details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; border-bottom: 2px dashed #ddd; padding-bottom: 20px; }
+.detail-box { display: flex; flex-direction: column; }
+.detail-box span { font-size: 0.85rem; color: #777; margin-bottom: 4px; }
+.detail-box strong { font-size: 1rem; color: #333; }
+.passenger-section h4 { margin: 0 0 10px 0; color: #333; font-size: 1.1rem; }
+.passenger-table { width: 100%; border-collapse: collapse; }
+.passenger-table th { text-align: left; padding: 8px 10px; background: #f1f1f1; color: #555; font-size: 0.9rem; }
+.passenger-table td { padding: 10px; border-bottom: 1px solid #eee; color: #222; font-weight: 500; }
+.status-text { color: #28a745; font-weight: bold; }
+.total-row { display: flex; justify-content: space-between; align-items: center; background: #fff8f5; padding: 15px; border-radius: 10px; border: 1px solid #ffe8e0; }
+.total-row span { font-weight: bold; color: #555; font-size: 1.1rem; }
+.total-row h2 { margin: 0; color: #ff4b2b; font-size: 1.8rem; }
+.ticket-footer { padding: 20px; text-align: center; background: #f9f9f9; border-top: 1px dashed #ccc; }
+.print-btn { background: #333; color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
+.print-btn:hover { background: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+@media print {
+  .page-wrapper, .close-btn, .ticket-footer { display: none !important; }
+  .ticket-modal-overlay { position: static; background: white; }
+  .ticket-modal { box-shadow: none; width: 100%; max-width: 100%; border: 1px solid #ccc; }
+}

@@ -1,0 +1,84 @@
+<div class="page-wrapper">
+  <div class="content-card" 
+     [style.max-width]="showAnalytics ? '100%' : '800px'" 
+     [style.width]="showAnalytics ? '98%' : '90%'"
+     [style.margin]="'0 auto'">
+   
+    <button class="top-back-btn" (click)="goHome()">← Back to Home</button>
+
+    <div class="profile-header" *ngIf="authService.currentUser">
+      <div class="avatar-large" [style.background]="authService.currentUser.role === 'admin' ? '#ff4b2b' : '#00d4ff'">
+        {{ authService.currentUser.name.charAt(0) | uppercase }}
+      </div>
+      <div class="user-info">
+        <h2>
+          {{ authService.currentUser.name }}
+          <span class="role-badge" *ngIf="authService.currentUser.role === 'admin'">ADMIN</span>
+        </h2>
+        <p>{{ authService.currentUser.email }}</p>
+      </div>
+      <button class="edit-btn" (click)="toggleEdit()" *ngIf="!isEditing">✏️ Edit Profile</button>
+    </div>
+
+    <div class="profile-details" *ngIf="!isEditing && authService.currentUser">
+      <div class="detail-row">
+        <span>Mobile Number:</span>
+        <strong>{{ authService.currentUser.mobile }}</strong>
+      </div>
+      <div class="detail-row">
+        <span>City / Location:</span>
+        <strong>{{ authService.currentUser.city || 'Not Provided' }}</strong>
+      </div>
+      <div class="detail-row">
+        <span>Account Status:</span>
+        <strong style="color: #28a745;">Active ✅</strong>
+      </div>
+
+      <button class="analytics-btn" (click)="showAnalytics = !showAnalytics" 
+              [style.background]="authService.currentUser.role === 'admin' ? '#1a202c' : '#007bff'">
+        <ng-container *ngIf="authService.currentUser.role === 'admin'">
+          {{ showAnalytics ? '📂 Hide Revenue Center' : '📈 Open Business Dashboard' }}
+        </ng-container>
+        <ng-container *ngIf="authService.currentUser.role !== 'admin'">
+          {{ showAnalytics ? '📊 Hide Analytics' : '📉 View My Travel Insights' }}
+        </ng-container>
+      </button>
+    </div>
+
+    <form class="edit-form" *ngIf="isEditing" (ngSubmit)="saveProfile()">
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" name="name" [(ngModel)]="editName" required>
+      </div>
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" name="email" [(ngModel)]="editEmail" required>
+      </div>
+      <div class="input-group">
+        <label>Mobile Number</label>
+        <input type="text" name="mobile" [(ngModel)]="editMobile" required>
+      </div>
+      <div class="input-group">
+        <label>City</label>
+        <input type="text" name="city" [(ngModel)]="editCity" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="save-btn">Save Changes</button>
+        <button type="button" class="cancel-btn" (click)="toggleEdit()">Cancel</button>
+      </div>
+    </form>
+
+    <div class="analytics-wrapper" *ngIf="showAnalytics && !isEditing">
+      <hr class="dash-divider">
+      
+      <ng-container *ngIf="authService.currentUser.role === 'admin'">
+        <app-admin-dashboard></app-admin-dashboard>
+      </ng-container>
+
+      <ng-container *ngIf="authService.currentUser.role !== 'admin'">
+        <app-analytics-dashboard></app-analytics-dashboard>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="page-wrapper">
+  <div class="content-card">
+    
+    <button class="top-back-btn" (click)="goBack()">← Back to Destinations</button>
+
+    <h2>My Wishlist ❤️</h2>
+
+    <div class="empty-state" *ngIf="authService.myWishlist.length === 0">
+      <div class="empty-icon">💔</div>
+      <h3>Your wishlist is empty!</h3>
+      <p>Explore our destinations and tap the heart icon to save your dream trips here.</p>
+      <button class="primary-btn mt-3" routerLink="/destinations">Explore Now</button>
+    </div>
+
+    <div class="wishlist-grid" *ngIf="authService.myWishlist.length > 0">
+      <div class="wish-card" *ngFor="let item of authService.myWishlist">
+        
+        <img [src]="item.image || '/assets/placeholder.jpg'" alt="Destination">
+        
+        <div class="wish-info">
+          <h3>{{ item.name }}</h3>
+          <p class="price">Est. ₹{{ item.price || '5000' }}</p>
+          
+          <div class="action-buttons">
+            <button class="book-btn" (click)="bookNow(item)">Book Now</button>
+            <button class="remove-btn" (click)="removeFromWishlist(item)">🗑️</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

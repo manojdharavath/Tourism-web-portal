@@ -1,0 +1,157 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="role-selector" style="display: flex; background: rgba(255,255,255,0.1); border-radius: 50px; padding: 5px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2);">
+  <button type="button" (click)="setRole('user')" 
+    [style.background]="userRole === 'user' ? 'white' : 'transparent'" 
+    [style.color]="userRole === 'user' ? 'black' : 'white'" 
+    style="flex:1; border:none; border-radius:50px; padding:8px; cursor:pointer; font-weight:bold; transition: 0.3s;">
+    Traveler
+  </button>
+  <button type="button" (click)="setRole('admin')" 
+    [style.background]="userRole === 'admin' ? 'white' : 'transparent'" 
+    [style.color]="userRole === 'admin' ? 'black' : 'white'" 
+    style="flex:1; border:none; border-radius:50px; padding:8px; cursor:pointer; font-weight:bold; transition: 0.3s;">
+    Admin
+  </button>
+</div>
+    <ng-container *ngIf="viewState === 'signin'">
+     <h2>{{ userRole === 'admin' ? 'Admin Access' : 'Sign in to continue' }}</h2>
+      
+      <form #signinForm="ngForm" (ngSubmit)="onAuthenticate()">
+        
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Email Address" 
+                 [(ngModel)]="authEmail" required 
+                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]{3,}\.[a-zA-Z.]{2,}$" #siEmail="ngModel" />
+          <small class="error-msg" *ngIf="siEmail.errors?.['required'] && siEmail.touched">Email is required.</small>
+          <small class="error-msg" *ngIf="siEmail.errors?.['pattern'] && siEmail.touched">Enter a valid email (e.g., name@gmail.com).</small>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="password" placeholder="Password" 
+                 [(ngModel)]="authPassword" required #siPass="ngModel" />
+          <small class="error-msg" *ngIf="siPass.invalid && siPass.touched">Password is required.</small>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me"><input type="checkbox"> Remember me</label>
+          <a href="javascript:void(0)" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="primary-btn" [disabled]="signinForm.invalid">Sign In</button>
+      </form>
+
+      <div class="divider"><span>OR CONTINUE WITH</span></div>
+
+      <div class="social-grid">
+        <button class="social-btn google-btn" (click)="loginWithSocial('Google')">
+          <i class="fa-brands fa-google"></i> Google
+        </button>
+        <button class="social-btn apple-btn" (click)="loginWithSocial('Apple')">
+          <i class="fa-brands fa-apple"></i> Apple
+        </button>
+      </div>
+
+      <button class="mobile-btn" (click)="switchView('mobile')">
+        <i class="fa-solid fa-mobile-screen"></i> Continue with Mobile Number
+      </button>
+
+      <p class="switch-text">Don’t have an account? <a (click)="switchView('signup')">Sign Up</a></p>
+    </ng-container>
+
+
+    <ng-container *ngIf="viewState === 'signup'">
+      <h2>Create your account</h2>
+      
+      <form #signupForm="ngForm" (ngSubmit)="onAuthenticate()">
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Full Name" 
+                 [(ngModel)]="authName" required minlength="3" pattern="^[a-zA-Z ]+$" #suName="ngModel" />
+          <small class="error-msg" *ngIf="suName.invalid && suName.touched">Name must be at least 3 letters.</small>
+        </div>
+
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Email Address" 
+                 [(ngModel)]="authEmail" required 
+                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]{3,}\.[a-zA-Z.]{2,}$" #suEmail="ngModel" />
+          <small class="error-msg" *ngIf="suEmail.errors?.['required'] && suEmail.touched">Email is required.</small>
+          <small class="error-msg" *ngIf="suEmail.errors?.['pattern'] && suEmail.touched">Enter a valid email (e.g., name@gmail.com).</small>
+        </div>
+
+        <div class="row-inputs">
+          <div class="input-group half">
+            <input type="tel" name="mobile" placeholder="Mobile No." 
+                   [(ngModel)]="authMobile" required pattern="^[0-9]{10}$" #suMobile="ngModel" />
+            <small class="error-msg" *ngIf="suMobile.invalid && suMobile.touched">10 digits required.</small>
+          </div>
+          <div class="input-group half">
+            <input type="text" name="city" placeholder="City" 
+                   [(ngModel)]="authCity" required #suCity="ngModel" />
+            <small class="error-msg" *ngIf="suCity.invalid && suCity.touched">City required.</small>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="password" placeholder="Create Password" 
+                 [(ngModel)]="authPassword" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$" #suPass="ngModel" />
+          <small class="error-msg" *ngIf="suPass.invalid && suPass.touched">Min 8 chars, 1 letter & 1 number.</small>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="confirmPassword" placeholder="Confirm Password" 
+                 [(ngModel)]="authConfirmPassword" required #suConfPass="ngModel" />
+          <small class="error-msg" *ngIf="suConfPass.touched && authConfirmPassword !== authPassword">Passwords do not match!</small>
+        </div>
+
+        <div class="terms-group">
+          <label>
+            <input type="checkbox" name="terms" [(ngModel)]="acceptTerms" required>
+            I agree to the <a href="javascript:void(0)">Terms & Conditions</a>
+          </label>
+        </div>
+
+        <button type="submit" class="primary-btn" 
+                [disabled]="signupForm.invalid || authPassword !== authConfirmPassword">
+          Create Account
+        </button>
+      </form>
+
+      <div class="divider"><span>OR SIGN UP WITH</span></div>
+      
+      <div class="social-grid">
+        <button class="social-btn google-btn" (click)="loginWithSocial('Google')"><i class="fa-brands fa-google"></i></button>
+        <button class="social-btn apple-btn" (click)="loginWithSocial('Apple')"><i class="fa-brands fa-apple"></i></button>
+        <button class="social-btn meta-btn" (click)="loginWithSocial('Meta')"><i class="fa-brands fa-meta"></i></button>
+      </div>
+
+      <p class="switch-text">Already have an account? <a (click)="switchView('signin')">Sign In</a></p>
+    </ng-container>
+
+
+    <ng-container *ngIf="viewState === 'mobile'">
+      <h2>Mobile Login 📱</h2>
+      <p class="sub-text">We'll send a secure one-time code to your phone.</p>
+      
+      <form #mobileForm="ngForm">
+        
+        <div class="input-group" *ngIf="!otpSent">
+          <input type="tel" name="otpPhone" placeholder="Enter 10-digit Mobile" 
+                 [(ngModel)]="otpPhone" required pattern="^[0-9]{10}$" #mobPhone="ngModel" />
+          <small class="error-msg" *ngIf="mobPhone.invalid && mobPhone.touched">Valid 10-digit number required.</small>
+          <button type="button" class="primary-btn" (click)="sendOtp()" [disabled]="mobPhone.invalid">Get OTP</button>
+        </div>
+
+        <div class="input-group" *ngIf="otpSent">
+          <input type="text" name="otpCode" placeholder="Enter 4-digit OTP (Try: 1234)" 
+                 [(ngModel)]="otpCode" required pattern="^[0-9]{4}$" maxlength="4" #otpInput="ngModel" />
+          <small class="error-msg" *ngIf="otpInput.invalid && otpInput.touched">Enter the 4-digit code.</small>
+          <button type="button" class="primary-btn" (click)="verifyOtp()" [disabled]="otpInput.invalid">Verify & Login</button>
+        </div>
+
+      </form>
+
+      <button class="back-btn-text" (click)="switchView('signin')">← Back to Email Sign In</button>
+    </ng-container>
+
+  </div>
+</div>

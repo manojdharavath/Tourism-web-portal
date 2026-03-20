@@ -1,0 +1,133 @@
+<div class="home-wrapper">
+
+  <div class="hero-header">
+    <h1>Explore Incredible India</h1>
+    <p class="quote">“Discover timeless beauty, culture, and unforgettable journeys.”</p>
+  </div>
+
+  <div class="places-section">
+    <h2>Popular Tourist Places</h2>
+    <div class="places-grid">
+      <div class="place-card" *ngFor="let place of popularPlaces" 
+           [routerLink]="['/destinations']" [queryParams]="{ search: place.name }">
+        <div class="card-img-wrapper">
+          <img [src]="place.image" alt="{{ place.name }}">
+          <button class="wishlist-btn" [class.saved]="authService.isInWishlist(place)" 
+                  (click)="toggleWishlist($event, place)">
+            {{ authService.isInWishlist(place) ? '❤️' : '🤍' }}
+          </button>
+        </div>
+        <h3>{{ place.name }}</h3>
+      </div>
+    </div>
+
+    <div class="view-btn-wrapper">
+      <button class="view-all-btn" routerLink="/destinations">
+        Explore All Destinations →
+      </button>
+    </div>
+  </div>
+
+  <div class="reviews-section">
+    <h2>What Travelers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"YatraVerse made our Goa trip seamless. The booking process was so smooth!"</p>
+        <strong>- Rahul S.</strong>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"I loved the wishlist feature. It helped me plan my entire Rajasthan tour perfectly."</p>
+        <strong>- Priya M.</strong>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Best prices and secure booking. Highly recommend!"</p>
+        <strong>- Amit K.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-card">
+    <h2>About YatraVerse</h2>
+    <p>YatraVerse is a modern travel platform designed to simplify the way people explore India. We provide reliable data and smooth digital experiences.</p>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-header">
+      <h2>📖 Traveler's Guide & FAQ</h2>
+      <p>Everything you need to know before you hit the road.</p>
+    </div>
+
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="guide-icon">01</div>
+        <h4>Pick your Vibe</h4>
+        <p>Select between Flights, Trains, or Packages to start your journey.</p>
+      </div>
+      <div class="guide-card">
+        <div class="guide-icon">02</div>
+        <h4>Verify Details</h4>
+        <p>Check availability and real-time pricing for your chosen dates.</p>
+      </div>
+      <div class="guide-card">
+        <div class="guide-icon">03</div>
+        <h4>Fly Away</h4>
+        <p>Confirm your booking and receive your digital pass instantly.</p>
+      </div>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <h5>❓ How do I cancel a booking?</h5>
+        <p>You can cancel any trip via the 'My Bookings' section at least 24 hours before departure.</p>
+      </div>
+      <div class="faq-item">
+        <h5>❓ Is my payment secure?</h5>
+        <p>Yes, YatraVerse uses 256-bit encryption to ensure all transactions are 100% safe.</p>
+      </div>
+      <div class="faq-item">
+        <h5>❓ Can I book for a group?</h5>
+        <p>Absolutely! You can add up to 10 passengers in a single booking flow.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="perks-bar">
+    <div class="perk"><span class="perk-icon">🔒</span> Secure Booking</div>
+    <div class="perk"><span class="perk-icon">🏷️</span> Best Price Guarantee</div>
+    <div class="perk"><span class="perk-icon">🎧</span> 24/7 Support</div>
+  </div>
+
+ <div class="footer-section">
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1Aa5f7X4CW/" 
+         target="_blank" 
+         class="social-icon facebook">
+         <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.instagram.com/manojjj_dharavath" 
+         target="_blank" 
+         class="social-icon instagram">
+         <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://x.com/DharavathManoj9" 
+         target="_blank" 
+         class="social-icon twitter">
+         <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <a href="https://wa.me/919704692620" 
+         target="_blank" 
+         class="social-icon whatsapp">
+         <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>© 2026 YatraVerse. All Rights Reserved.</p>
+</div>
+
+  <div class="toast-message" [class.show]="isToastVisible">{{ toastMessage }}</div>
+</div>

@@ -1,0 +1,81 @@
+<div class="full-dashboard">
+  
+  <div class="dashboard-header">
+    <h2 class="main-heading">📈 Travel Intelligence & Analytics Hub</h2>
+    <p class="sub-heading">Real-time data synchronization for destination demand and booking traffic.</p>
+  </div>
+
+  <div class="insight-banner" [ngClass]="smartRecommendation.type" *ngIf="smartRecommendation.title">
+    <div class="banner-content">
+      <div class="banner-icon-circle">
+        {{ smartRecommendation.type === 'urgent' ? '🔥' : '✨' }}
+      </div>
+      <div class="banner-text">
+        <h4>{{ smartRecommendation.title }}</h4>
+        <p>{{ smartRecommendation.desc }}</p>
+      </div>
+    </div>
+    <button class="banner-btn">{{ smartRecommendation.action }}</button>
+  </div>
+
+  <div class="module-section">
+    <div class="section-title">
+       <span class="num-badge">01</span>
+       <h3 class="title-text">Destination Popularity Insights</h3>
+       <span class="title-tag">(5-Month Historical Trend)</span>
+    </div>
+    
+    <div class="full-grid-spark">
+      <div class="spark-card-large" *ngFor="let item of popInsights">
+        <div class="card-meta">
+          <strong class="place-name">{{item.name}}</strong>
+          <span class="growth-pill" [style.background]="item.color" style="color: white;">{{item.growth}}</span>
+        </div>
+        
+        <div class="graph-container">
+          <div class="bar-wrapper" *ngFor="let val of item.trend; let i = index">
+            <div class="bar" [style.height]="isVisible ? val + '%' : '0%'" [style.background]="item.color">
+              <span class="tooltip">Month {{i + 1}}: {{val}}%</span>
+            </div>
+          </div>
+        </div>
+        <p class="graph-label">{{item.desc}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-section">
+    <div class="section-title">
+       <span class="num-badge secondary">02</span>
+       <h3 class="title-text">Booking Status Analytics Module</h3>
+       <span class="title-tag">(Live Inventory Tracking)</span>
+    </div>
+
+    <div class="full-grid-status">
+      <div class="status-box-premium" *ngFor="let s of bookingStatus">
+        <div class="status-header">
+          <span class="status-icon-bg">{{s.icon}}</span>
+          <div class="status-text">
+            <h4 class="location-title">{{s.place}}</h4>
+            <span class="badge-type">{{s.type}}</span>
+          </div>
+          <span class="status-dot" [style.background]="s.current >= 85 ? '#ff4b2b' : '#00ff88'"></span>
+        </div>
+        
+        <div class="inventory-meter">
+          <div class="meter-labels">
+            <span class="label-dark">Occupancy Rate</span>
+            <span class="percent-highlight" [style.color]="s.current >= 85 ? '#ff4b2b' : '#00d4ff'">{{s.current}}%</span>
+          </div>
+          <div class="meter-bar">
+            <div class="meter-fill" [style.width]="isVisible ? s.current + '%' : '0%'"
+                 [style.background]="s.current >= 85 ? 'linear-gradient(90deg, #ff416c, #ff4b2b)' : 'linear-gradient(90deg, #00d4ff, #00ff88)'">
+            </div>
+          </div>
+          <p class="slots-text"><strong>{{s.current}}</strong> of {{s.total}} Slots confirmed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

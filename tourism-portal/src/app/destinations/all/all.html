@@ -1,0 +1,109 @@
+<div class="dest-page">
+
+  <h2>Explore Destinations ✈️</h2>
+
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-box"
+      placeholder="Search destination..."
+      [(ngModel)]="searchText"
+    />
+  </div>
+
+  <div class="filters-container">
+
+    <div class="filter-bar">
+      <button (click)="selectedType='All'" [class.active]="selectedType === 'All'">All</button>
+      <button (click)="selectedType='Hill Station'" [class.active]="selectedType === 'Hill Station'">Hill</button>
+      <button (click)="selectedType='Beach'" [class.active]="selectedType === 'Beach'">Beach</button>
+      <button (click)="selectedType='Heritage'" [class.active]="selectedType === 'Heritage'">Heritage</button>
+      <button (click)="selectedType='Pilgrimage'" [class.active]="selectedType === 'Pilgrimage'">Pilgrimage</button>
+      <button (click)="selectedType='Wildlife'" [class.active]="selectedType === 'Wildlife'">Wildlife</button>
+    </div>
+
+    <div class="advanced-filters">
+      <select [(ngModel)]="selectedPopularitySort">
+        <option value="">Popularity</option>
+        <option value="high">High → Low</option>
+        <option value="low">Low → High</option>
+      </select>
+
+      <select [(ngModel)]="selectedRatingFilter">
+        <option value="">Rating</option>
+        <option value="4+">4+ Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+
+      <select [(ngModel)]="selectedPriceFilter">
+        <option value="">Price</option>
+        <option value="budget">Budget-Friendly</option>
+        <option value="mid">Mid</option>
+        <option value="luxury">Luxury</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="cards-wrapper">
+
+    <div class="dest-card" *ngFor="let place of filteredDestinations">
+
+      <div class="left-section">
+        
+        <div class="image-wrapper">
+          <img [src]="place.image" alt="{{ place.name }}" />
+          
+          <button class="wishlist-btn" 
+                  [class.saved]="authService.isInWishlist(place)" 
+                  (click)="toggleWishlist(place)">
+            {{ authService.isInWishlist(place) ? '❤️' : '🤍' }}
+          </button>
+        </div>
+
+        <button class="book-btn" (click)="bookTour(place)">
+          Book Tour 🚀
+        </button>
+      </div>
+
+      <div class="info">
+
+        <h3>
+          {{ place.name }}
+          <span class="badge">{{ place.type }}</span>
+        </h3>
+
+        <div class="stars">
+          <span *ngFor="let s of [].constructor(place.popularity)">⭐</span>
+        </div>
+
+        <p class="state">📍 {{ place.location }}</p>
+        <p><strong>Price:</strong> ₹{{ place.price }}</p>
+
+        <p>{{ place.full }}</p>
+
+        <p><strong>Why Famous:</strong> {{ place.famousFor }}</p>
+        <p><strong>History:</strong> {{ place.history }}</p>
+        <p><strong>Best Time:</strong> {{ place.bestTime }}</p>
+
+        <div class="nearby">
+          <span *ngFor="let n of place.nearbyPlaces">{{ n }}</span>
+        </div>
+
+    <button 
+      type="button" 
+      class="map-link" 
+      (click)="viewOnMap(place)"
+      style="background: none; border: none; color: #ff512f; cursor: pointer; text-decoration: underline; font-weight: bold; padding: 0;">
+      📍 View on Google Maps
+    </button>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="toast-message" [class.show]="toastMessage !== ''">
+    {{ toastMessage }}
+  </div>
+
+</div>
