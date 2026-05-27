@@ -1,0 +1,1248 @@
+{
+  "bookings": [
+    {
+      "id": "82b9",
+      "bookingId": "YATRA-55416",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "Delhi",
+      "destination": "Jaipur",
+      "date": "2026-03-01",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "santhosh",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "664d",
+      "bookingId": "YATRA-93940",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "Delhi",
+      "destination": "Jaipur",
+      "date": "2026-03-01",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "santhosh",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "c279",
+      "bookingId": "YATRA-90016",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Jaipur",
+      "date": "2026-03-01",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Manoj",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "5507",
+      "bookingId": "YATRA-49707",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Jaipur",
+      "date": "2026-03-01",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Manoj",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "a8d5",
+      "bookingId": "YATRA-10246",
+      "travelMode": "Bus",
+      "provider": "Bus Express",
+      "fromLocation": "jaipur",
+      "destination": "Varanasi",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "e265",
+      "bookingId": "YATRA-73149",
+      "travelMode": "Bus",
+      "provider": "Bus Express",
+      "fromLocation": "jaipur",
+      "destination": "Varanasi",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "15f7",
+      "bookingId": "YATRA-15343",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Taj Mahal",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Mobile Traveler",
+      "contactEmail": "mobile@user.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "fc58",
+      "bookingId": "YATRA-17801",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Taj Mahal",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Mobile Traveler",
+      "contactEmail": "mobile@user.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "c556",
+      "bookingId": "YATRA-53838",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "dc98",
+      "bookingId": "YATRA-43677",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "fc81",
+      "bookingId": "YATRA-78126",
+      "travelMode": "Train",
+      "provider": "Train Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "f4fe",
+      "bookingId": "YATRA-92028",
+      "travelMode": "Train",
+      "provider": "Train Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "7383",
+      "bookingId": "YATRA-44789",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "c91e",
+      "bookingId": "YATRA-92268",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "eec0",
+      "bookingId": "YATRA-61669",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "3901",
+      "bookingId": "YATRA-42253",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "9148",
+      "bookingId": "YATRA-47828",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "5d2a",
+      "bookingId": "YATRA-26950",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "447d",
+      "bookingId": "YATRA-24031",
+      "travelMode": "Bus",
+      "provider": "Bus Night Rider",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "07:45 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 4100
+    },
+    {
+      "id": "ad21",
+      "bookingId": "YATRA-16884",
+      "travelMode": "Bus",
+      "provider": "Bus Night Rider",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "07:45 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 4100
+    },
+    {
+      "id": "0c6f",
+      "bookingId": "YATRA-34910",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "jaipur",
+      "destination": "Taj Mahal",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "adcb",
+      "bookingId": "YATRA-49416",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "jaipur",
+      "destination": "Taj Mahal",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "a53d",
+      "bookingId": "YATRA-88945",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "630b",
+      "bookingId": "YATRA-12715",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "a770",
+      "bookingId": "YATRA-52619",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "jethyadharavath@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "1ea5",
+      "bookingId": "YATRA-59864",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "jethyadharavath@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "c5c4",
+      "bookingId": "YATRA-84058",
+      "travelMode": "Bus",
+      "provider": "Bus Express",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "cb02",
+      "bookingId": "YATRA-76666",
+      "travelMode": "Bus",
+      "provider": "Bus Express",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "4937",
+      "bookingId": "YATRA-55542",
+      "travelMode": "Hotel",
+      "provider": "Hotel Express",
+      "fromLocation": "Origin Point",
+      "destination": "Jaipur",
+      "date": "2026-03-06",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "f362",
+      "bookingId": "YATRA-47713",
+      "travelMode": "Hotel",
+      "provider": "Hotel Express",
+      "fromLocation": "Origin Point",
+      "destination": "Jaipur",
+      "date": "2026-03-06",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "6c31",
+      "bookingId": "YATRA-55518",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "adf5",
+      "bookingId": "YATRA-14834",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "jaipur",
+      "destination": "Jaipur",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "f40c",
+      "bookingId": "YATRA-24668",
+      "travelMode": "Hotel",
+      "provider": "Hotel Express",
+      "fromLocation": "Origin Point",
+      "destination": "Jaipur",
+      "date": "2026-03-06",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "8efd",
+      "bookingId": "YATRA-56590",
+      "travelMode": "Hotel",
+      "provider": "Hotel Express",
+      "fromLocation": "Origin Point",
+      "destination": "Jaipur",
+      "date": "2026-03-06",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "8cd0",
+      "bookingId": "YATRA-37942",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "jaipur",
+      "destination": "Goa",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "2b22",
+      "bookingId": "YATRA-46252",
+      "travelMode": "Train",
+      "provider": "Train Express",
+      "fromLocation": "jaipur",
+      "destination": "Goa",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "27b8",
+      "bookingId": "YATRA-24618",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Mumbai",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "MANOJ DHARAVATH",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "537e",
+      "bookingId": "YATRA-13809",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Mumbai",
+      "date": "2026-02-27",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "MANOJ DHARAVATH",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "3987",
+      "bookingId": "YATRA-75995",
+      "travelMode": "Hotel",
+      "provider": "Hotel Superfast",
+      "fromLocation": "Origin Point",
+      "destination": "Jaipur",
+      "date": "2026-03-11",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "f24f",
+      "bookingId": "YATRA-58565",
+      "travelMode": "Hotel",
+      "provider": "Hotel Superfast",
+      "fromLocation": "Origin Point",
+      "destination": "Jaipur",
+      "date": "2026-03-11",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Mano",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "9a64",
+      "bookingId": "YATRA-54421",
+      "travelMode": "Bus",
+      "provider": "Bus Express",
+      "fromLocation": "jaipur",
+      "destination": "Amritsar",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "f86d",
+      "bookingId": "YATRA-13702",
+      "travelMode": "Bus",
+      "provider": "Bus Express",
+      "fromLocation": "jaipur",
+      "destination": "Amritsar",
+      "date": "2026-02-27",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "82e9",
+      "bookingId": "YATRA-96030",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-12",
+      "time": "08:00 AM",
+      "passengersCount": 2,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        },
+        {
+          "name": "kowsik",
+          "age": 20
+        }
+      ],
+      "contactName": "MANOJ DHARAVATH",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "bf93",
+      "bookingId": "YATRA-62603",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-12",
+      "time": "08:00 AM",
+      "passengersCount": 2,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        },
+        {
+          "name": "kowsik",
+          "age": 20
+        }
+      ],
+      "contactName": "MANOJ DHARAVATH",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "41bb",
+      "bookingId": "YATRA-66919",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-12",
+      "time": "08:00 AM",
+      "passengersCount": 2,
+      "passengerDetails": [
+        {
+          "name": "Manoj",
+          "age": 20
+        },
+        {
+          "name": "kowsik",
+          "age": 20
+        }
+      ],
+      "contactName": "MANOJ DHARAVATH",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 2500
+    },
+    {
+      "id": "1045",
+      "bookingId": "YATRA-94112",
+      "travelMode": "Train",
+      "provider": "Train Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Kerala",
+      "date": "2026-03-14",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Dharavath Manoj",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "b68e",
+      "bookingId": "YATRA-71534",
+      "travelMode": "Train",
+      "provider": "Train Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Kerala",
+      "date": "2026-03-14",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "Dharavath Manoj",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 3200
+    },
+    {
+      "id": "fa99",
+      "bookingId": "YATRA-21093",
+      "travelMode": "Flight",
+      "provider": "Flight Night Rider",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-14",
+      "time": "07:45 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 4100
+    },
+    {
+      "id": "5b8d",
+      "bookingId": "YATRA-84494",
+      "travelMode": "Flight",
+      "provider": "Flight Night Rider",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-14",
+      "time": "07:45 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 20
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9704692620",
+      "price": 4100
+    },
+    {
+      "id": "5e3f",
+      "bookingId": "YATRA-46740",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-20",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 19
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9347893427",
+      "price": 2500
+    },
+    {
+      "id": "c282",
+      "bookingId": "YATRA-54310",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-20",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 19
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9347893427",
+      "price": 2500
+    },
+    {
+      "id": "9aab",
+      "bookingId": "YATRA-69766",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-20",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 19
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9347893427",
+      "price": 2500
+    },
+    {
+      "id": "5986",
+      "bookingId": "YATRA-85569",
+      "travelMode": "Flight",
+      "provider": "Flight Express",
+      "fromLocation": "hyderabad",
+      "destination": "Manali",
+      "date": "2026-03-20",
+      "time": "08:00 AM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "manoj",
+          "age": 19
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "9347893427",
+      "price": 2500
+    },
+    {
+      "id": "29d9",
+      "bookingId": "YATRA-39792",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-03-14",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "rvrwdref",
+          "age": 23
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "0970469262",
+      "price": 3200
+    },
+    {
+      "id": "617a",
+      "bookingId": "YATRA-51937",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-03-14",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "rvrwdref",
+          "age": 23
+        }
+      ],
+      "contactName": "System Administrator",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "0970469262",
+      "price": 3200
+    },
+    {
+      "bookingId": "YATRA-47333",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-05-28",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "gopAL",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "0970469262",
+      "price": 3200,
+      "id": "Gh72z52"
+    },
+    {
+      "bookingId": "YATRA-58876",
+      "travelMode": "Bus",
+      "provider": "Bus Superfast",
+      "fromLocation": "jaipur",
+      "destination": "Manali",
+      "date": "2026-05-28",
+      "time": "01:30 PM",
+      "passengersCount": 1,
+      "passengerDetails": [
+        {
+          "name": "gopAL",
+          "age": 20
+        }
+      ],
+      "contactName": "Awesome Traveler",
+      "contactEmail": "dharavathmanoj290@gmail.com",
+      "contactMobile": "0970469262",
+      "price": 3200,
+      "id": "cDtCLJU"
+    }
+  ],
+  "destinations": [
+    {
+      "id": "1",
+      "name": "Manali",
+      "location": "Himachal Pradesh",
+      "type": "Hill Station",
+      "price": 5000,
+      "popularity": 5,
+      "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23",
+      "famousFor": "Snow-capped peaks",
+      "history": "Ancient home of the sages.",
+      "bestTime": "Oct - June",
+      "nearbyPlaces": [
+        "Solang Valley"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jaipur",
+      "location": "Rajasthan",
+      "type": "Heritage",
+      "price": 2500,
+      "popularity": 5,
+      "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41",
+      "famousFor": "Pink City architecture",
+      "history": "Founded by Maharaja Sawai Jai Singh II.",
+      "bestTime": "Nov - Feb",
+      "nearbyPlaces": [
+        "Amer Fort",
+        "Hawa Mahal"
+      ]
+    }
+  ],
+  "users": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
